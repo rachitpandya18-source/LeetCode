@@ -2,14 +2,13 @@ class Solution {
 public:
     vector<int> getRow(int rowIndex) {
         vector<int> ans;
-        long long temp = 1;
-        ans.push_back(temp);
+        ans.push_back(1);
+        long long currentVal = 1;
 
-        for(int i = 1; i <= rowIndex; i++) {
-            temp = temp * (rowIndex - i + 1);
-            temp = temp / i;
-
-            ans.push_back(temp);
+        for(int col = 0; col < rowIndex; col++) {
+            currentVal *= (rowIndex - col);
+            currentVal /= (col + 1);
+            ans.push_back(currentVal);
         }
         return ans;
     }
